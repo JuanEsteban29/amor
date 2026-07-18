@@ -7,8 +7,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.resolve(__dirname)));
 
 app.get('/', (req, res) => {
-    // Enviar index.html desde la raíz de forma absoluta
-    res.sendFile(path.resolve(__dirname, 'index.html'));
+    const filePath = path.resolve(__dirname, 'index.html');
+    console.log("Intentando servir archivo desde: " + filePath); // Esto aparecerá en los Logs de Railway
+    res.sendFile(filePath);
 });
 
 app.listen(PORT, () => {
