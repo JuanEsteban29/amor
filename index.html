@@ -397,9 +397,17 @@
 
 <script>
 
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target);} });
-},{threshold:0.15});
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible'); // O la clase que maneje la visibilidad
+        }
+    });
+}, { threshold: 0.15 });
+
+// ¡Importante! Debes seleccionar los elementos que quieres observar
+const elements = document.querySelectorAll('.reveal');
+elements.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
