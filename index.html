@@ -396,18 +396,25 @@
 </section>
 
 <script>
+  // 1. Seleccionamos todos los elementos que tengan la clase 'reveal'
+  const targets = document.querySelectorAll('.reveal');
 
-const observer = new IntersectionObserver((entries) => {
+  // 2. Creamos el observador
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible'); // O la clase que maneje la visibilidad
-        }
+      // Si el elemento entra en el viewport, le añadimos la clase 'in'
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+      }
     });
-}, { threshold: 0.15 });
+  }, { 
+    threshold: 0.15 // Se activa cuando el 15% del elemento es visible
+  });
 
-// ¡Importante! Debes seleccionar los elementos que quieres observar
-const elements = document.querySelectorAll('.reveal');
-elements.forEach(el => observer.observe(el));
+  // 3. Le decimos al observador que vigile cada elemento
+  targets.forEach(target => {
+    observer.observe(target);
+  });
 </script>
 </body>
 </html>
