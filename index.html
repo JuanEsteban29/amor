@@ -227,11 +227,11 @@
   .foot-rule{width:60px; height:1px; background:var(--gold); margin:2.4rem auto 0; opacity:.5;}
 
   @media (max-width:760px){
-    .entry, .entry.right{flex-direction:column; text-align:center; gap:1.6rem;}
+    .entry, .entry.right{flex-direction:column !important; text-align:center !important; gap:2rem !important;}
     .entry .polaroid-wrap, .pair{width:min(78vw, 320px);}
     .entry.left .caption-col, .entry.right .caption-col{text-align:center;}
     .entry.right p{margin:0 auto;}
-    .entry p{max-width:38ch; margin:0 auto;}
+    .entry p{max-width:90% !important; margin:0 auto !important;word-break: normal !important;}
     .thread{display:none;}
   }
 
